@@ -136,7 +136,7 @@ export default {
   methods: {
     async saveRekord(){
       try {
-        await axios.post("http://localhost:5000/rekord", {
+        await axios.post("https://bhotelapi.glitch.me/rekord", {
           kode_tamu: this.kodetamu.kode_tamu,
           tgl_inap: tglmsk.value,
           tgl_keluar: tglklr.value,
@@ -151,9 +151,9 @@ export default {
       try {
         var response = null;
         if(this.bulan == 0){
-          response = await axios.get("http://localhost:5000/view");
+          response = await axios.get("https://bhotelapi.glitch.me/view");
         } else {
-          response = await axios.get("http://localhost:5000/view/partial?bulan="+this.bulan);
+          response = await axios.get("https://bhotelapi.glitch.me/view/partial?bulan="+this.bulan);
         }
 
         if(response.data.length == 0){
@@ -186,7 +186,7 @@ export default {
     },
     async getTamu(){
       try {
-        const response = await axios.get("http://localhost:5000/rekord");
+        const response = await axios.get("https://bhotelapi.glitch.me/rekord");
         this.tamus = response.data;
         this.nama = this.tamus[0].nama_tamu;
         this.kodetamu = this.tamus[0];
