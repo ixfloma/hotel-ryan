@@ -202,14 +202,14 @@ export default {
     kodeOnChange(value){
       this.nama = value.nama_tamu
     },
-    hargaUpdate(value){
-      if(value == 'Single'){
+    hargaUpdate(){
+      if(this.jeniskamar == 'Single'){
         this.harga = '150000'
-      } else if(value == 'Double'){
+      } else if(this.jeniskamar == 'Double'){
         this.harga = '250000'
-      } else if(value == 'Suite'){
+      } else if(this.jeniskamar == 'Suite'){
         this.harga = '425000'
-      } else if(value == 'VIP'){
+      } else if(this.jeniskamar == 'VIP'){
         this.harga = '550000'
       }
     }
