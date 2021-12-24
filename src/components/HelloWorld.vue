@@ -111,7 +111,6 @@
 </template>
 
 <script>
-import 'bootstrap/scss/bootstrap.scss'
 import axios from "axios";
 import moment from "moment";
 export default {
@@ -136,7 +135,7 @@ export default {
   methods: {
     async saveRekord(){
       try {
-        await axios.post("https://bhotelapi.glitch.me/rekord", {
+        await axios.post("https://uas-backend-hotel.glitch.me/rekord", {
           kode_tamu: this.kodetamu.kode_tamu,
           tgl_inap: tglmsk.value,
           tgl_keluar: tglklr.value,
@@ -151,9 +150,9 @@ export default {
       try {
         var response = null;
         if(this.bulan == 0){
-          response = await axios.get("https://bhotelapi.glitch.me/view");
+          response = await axios.get("https://uas-backend-hotel.glitch.me/view");
         } else {
-          response = await axios.get("https://bhotelapi.glitch.me/view/partial?bulan="+this.bulan);
+          response = await axios.get("https://uas-backend-hotel.glitch.me/view/partial?bulan="+this.bulan);
         }
 
         if(response.data.length == 0){
@@ -186,7 +185,7 @@ export default {
     },
     async getTamu(){
       try {
-        const response = await axios.get("https://bhotelapi.glitch.me/rekord");
+        const response = await axios.get("https://uas-backend-hotel.glitch.me/rekord");
         this.tamus = response.data;
         this.nama = this.tamus[0].nama_tamu;
         this.kodetamu = this.tamus[0];
